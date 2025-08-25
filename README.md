@@ -1,2 +1,2 @@
 # My portfolio site
-<pedrowsxz.github.io/portfolio/>
+<https://pedrowsxz.github.io/portfolio/>
