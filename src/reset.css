@@ -46,15 +46,3 @@ table {
 	border-collapse: collapse;
 	border-spacing: 0;
 }
-
-.censored {
-  color: transparent;
-  text-shadow: 0 0 8px rgba(255, 255, 255, 0.5);
-  cursor: pointer;
-  transition: color;
-}
-
-.censored:hover {
-  color: inherit;
-  text-shadow: none;
-}
