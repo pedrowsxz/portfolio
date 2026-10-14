@@ -2,433 +2,437 @@
 <html lang="en">
 <head>
 <meta charset="utf-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
-<title>Pedro de Souza Carvalho | AI Web Builder</title>
-<meta name="description" content="Pedro de Souza Carvalho, AI web builder. Full-stack projects with React, Node.js and TypeScript, built and shipped with Claude Code. Also an LLM evaluator in Portuguese and English.">
-<meta property="og:title" content="Pedro de Souza Carvalho | AI Web Builder">
-<meta property="og:description" content="Full-stack projects with React, Node.js and TypeScript, built and shipped with Claude Code.">
-<!-- REPLACE: social share preview image, 1200x630 px, 1.91:1 -->
-<meta property="og:image" content="https://placehold.co/1200x630/0c2142/8fd0ff?text=Pedro+de+Souza+Carvalho">
-<meta name="theme-color" content="#061226">
-<!-- Fonts used by the reference design: Montserrat (headings) and Nunito (body). Skill icons: Devicon -->
-<link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Nunito:wght@400;600;700&display=swap">
-<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@latest/devicon.min.css">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Crect width='32' height='32' rx='8' fill='%230c2142'/%3E%3Ctext x='16' y='22' font-size='16' font-family='sans-serif' font-weight='700' text-anchor='middle' fill='%238fd0ff'%3EP%3C/text%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Pedro de Souza Carvalho | AI-Assisted Full-Stack Developer</title>
+<meta name="description" content="Pedro de Souza Carvalho, full-stack developer (React, Node.js, TypeScript) who builds, tests and ships web apps with Claude Code, and evaluates LLMs.">
+<meta name="theme-color" content="#07111f">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700;800;900&display=swap" rel="stylesheet">
+<!-- Devicon glyph font (icons are tinted with CSS color) -->
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/devicons/devicon@v2.17.0/devicon.min.css">
 <style>
+/* ===== THEME: edit colors, fonts and spacing here ===== */
 :root{
-  color-scheme:dark;
-  /* COLORS: only black, dark blue and light blue. Tweak them here */
-  --bg-primary:#061226; --bg-alt:#0c2142;           /* alternating section backgrounds */
-  --card:#040a16; --black:#000;                     /* card and footer surfaces */
-  --accent:#8fd0ff; --accent-strong:#bfe4ff; --on-accent:#04101f; /* light blue + text on it */
-  --text:#eaf4ff; --muted:#a9bcd9;
-  --border:rgba(143,208,255,.22); --border-strong:rgba(143,208,255,.55); --glow:rgba(143,208,255,.35);
-  --focus:#bfe4ff;
-  /* FONTS (loaded from Google Fonts in <head>, with system fallbacks) */
-  --font-body:"Nunito",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,Arial,sans-serif;
-  --font-head:"Montserrat","Nunito",ui-sans-serif,system-ui,-apple-system,"Segoe UI",Arial,sans-serif;
-  --fs-body:1.0625rem; --fs-name:clamp(2.6rem,8.5vw,5.75rem); --fs-h2:clamp(1.9rem,4.5vw,3rem); --fs-h3:1.25rem;
-  /* SPACING / SHAPE */
-  --space:1rem; --space-lg:2rem; --section:clamp(4rem,9vw,7rem); --max:1120px; --radius:20px; --pill:999px;
-  /* MOTION: gear = seconds per turn, hover multiplier = speed-up on hover, marquee = seconds per loop */
-  --gear-speed:40s; --gear-hover-multiplier:8; --marquee-speed:90s; --photo:clamp(240px,32vw,360px);
+  /* Palette: only black, dark blue and light blue */
+  --bg-primary:#07111f;        /* base dark blue */
+  --bg-alt:#0d1f38;            /* slightly lighter dark blue (alternating sections) */
+  --card:#040a14;              /* near-black card surface */
+  --card-2:#091527;            /* inputs, chips */
+  --text:#e8f2ff; --muted:#a6bad2;
+  --accent:#6cb8ff;            /* light blue: buttons, dots, borders */
+  --accent-soft:#a9d6ff;       /* lighter blue for links and tags */
+  --accent-dim:#1d4f8a;        /* deep blue for shadows */
+  --on-accent:#02060d;         /* text on light-blue buttons */
+  --line:rgba(108,184,255,.26); --glow:rgba(108,184,255,.22);
+  /* Type and spacing */
+  --font:"Nunito",system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+  --maxw:1120px; --pad:clamp(1.1rem,4vw,2rem); --section-gap:clamp(3.5rem,8vw,6rem);
+  --radius:18px; --radius-pill:999px;
+  --gear-speed:40s;            /* time for one slow gear turn */
+  --marquee-speed:55s;         /* time for one skills loop */
 }
 *,*::before,*::after{box-sizing:border-box}
-html{scroll-behavior:smooth;scroll-padding-top:8rem}
-body{margin:0;font:var(--fs-body)/1.7 var(--font-body);color:var(--text);background:var(--bg-primary);overflow-x:hidden}
+html{scroll-behavior:smooth;scroll-padding-top:4rem}
+body{margin:0;background:var(--bg-primary);color:var(--text);font:400 1.0625rem/1.7 var(--font);-webkit-font-smoothing:antialiased}
 img{max-width:100%;display:block}
-a{color:var(--accent)} a:hover{color:var(--accent-strong)}
-:focus-visible{outline:3px solid var(--focus);outline-offset:3px;border-radius:6px}
-.wrap{width:min(100% - 2*var(--space),var(--max));margin-inline:auto}
-h1,h2,h3{font-family:var(--font-head);line-height:1.1;letter-spacing:-.02em;margin:0}
-h2{font-size:var(--fs-h2)} h3{font-size:var(--fs-h3)}
-/* Section backgrounds alternate: odd = primary, even = lighter (hero, about, what I do, projects, ...) */
-main>section{padding-block:var(--section);background:var(--bg-primary)}
-main>section:nth-of-type(even){background:var(--bg-alt)}
-.title{text-align:center;font-weight:800}
-.title::after{content:"";display:block;width:52px;height:3px;border-radius:3px;background:var(--accent);margin:.9rem auto 0;box-shadow:0 0 12px var(--glow)}
-.sub{color:var(--muted);text-align:center;max-width:60ch;margin:.9rem auto var(--space-lg)}
-.skip{position:absolute;left:-999px;top:0;background:var(--accent);color:var(--on-accent);padding:.6rem 1rem;z-index:20}
-.skip:focus{left:var(--space)}
-.btn{display:inline-block;padding:.8rem 1.5rem;border-radius:var(--pill);font:700 1rem var(--font-body);text-decoration:none;border:2px solid var(--accent);background:var(--accent);color:var(--on-accent);cursor:pointer;transition:box-shadow .25s,background .25s}
-.btn:hover{background:var(--accent-strong);border-color:var(--accent-strong);color:var(--on-accent);box-shadow:0 0 24px var(--glow)}
-.btn.alt{background:transparent;color:var(--accent)} .btn.alt:hover{background:rgba(143,208,255,.12);color:var(--accent-strong)}
+a{color:var(--accent-soft);text-decoration-thickness:1px;text-underline-offset:3px}
+a:hover{color:#fff}
+:focus-visible{outline:3px solid var(--accent);outline-offset:3px;border-radius:6px}
+.wrap{max-width:var(--maxw);margin:0 auto;padding:0 var(--pad)}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+.skip{position:absolute;left:-999px;top:.5rem;background:var(--accent);color:var(--on-accent);padding:.5rem 1rem;border-radius:8px;z-index:20;font-weight:800}
+.skip:focus{left:.75rem}
+h1,h2,h3{font-weight:800;line-height:1.15;margin:0}
+h2{font-size:clamp(1.8rem,4.2vw,2.5rem);margin-bottom:2rem}
+h2::after{content:"";display:block;width:3rem;height:3px;margin-top:.7rem;border-radius:2px;background:var(--accent);box-shadow:0 0 14px var(--glow)}
+section{padding:var(--section-gap) 0}
+/* Section backgrounds alternate: hero(primary) > about(alt) > projects(primary) > skills(alt) > courses(primary) > contact(alt) */
+.band{background:var(--bg-alt)}
+.card-surface{background:var(--card);border:1px solid var(--line);border-radius:var(--radius);box-shadow:0 20px 50px -28px var(--glow)}
 
-/* Header */
-.site-header{position:sticky;top:0;z-index:10;background:color-mix(in srgb,var(--bg-primary) 88%,transparent);backdrop-filter:blur(12px);border-bottom:1px solid var(--border)}
-.bar{display:grid;grid-template-columns:auto 1fr auto;grid-template-areas:"brand nav icons";align-items:center;gap:var(--space);padding-block:.6rem}
-.brand{grid-area:brand;display:flex;align-items:center;gap:.7rem;font:700 1rem var(--font-head);color:var(--text);text-decoration:none}
-.brand img{width:40px;height:40px;border-radius:50%;object-fit:cover;border:1px solid var(--border-strong)}
-.site-header nav{grid-area:nav}
-.site-header ul{list-style:none;margin:0;padding:0;display:flex;gap:.25rem}
-.site-header nav ul{justify-content:center}
-.site-header nav a{display:block;padding:.45rem .9rem;border-radius:var(--pill);text-decoration:none;color:var(--text);font-weight:600;white-space:nowrap}
-.site-header nav a:hover{background:rgba(143,208,255,.14);color:var(--accent-strong)}
-.icons{grid-area:icons}
-.icon{display:grid;place-items:center;width:42px;height:42px;border-radius:50%;color:var(--text);border:1px solid transparent}
-.icon:hover{background:rgba(143,208,255,.14);border-color:var(--border-strong);color:var(--accent-strong);box-shadow:0 0 16px var(--glow)}
-.icon svg{width:22px;height:22px;fill:currentColor}
-.icon svg.s{fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
-@media(max-width:860px){
-  .bar{grid-template-columns:1fr auto;grid-template-areas:"brand icons" "nav nav";gap:.25rem var(--space)}
-  .site-header nav{overflow-x:auto} .site-header nav ul{justify-content:flex-start}
-}
-@media(max-width:480px){.brand span{display:none}}
+/* ===== NAV ===== */
+.nav{position:sticky;top:0;z-index:10;background:rgba(4,10,20,.88);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.nav ul{display:flex;flex-wrap:wrap;justify-content:center;gap:.25rem 1.25rem;list-style:none;margin:0;padding:.6rem var(--pad)}
+.nav a{color:var(--muted);text-decoration:none;font-weight:700;font-size:.95rem;padding:.25rem .4rem}
+.nav a:hover{color:var(--text)}
 
-/* A. Hero: everything centered, no photo */
-.hero{min-height:calc(100vh - 7rem);min-height:calc(100svh - 7rem);display:grid;place-items:center;text-align:center;
-  background-image:radial-gradient(60% 55% at 50% 45%,rgba(143,208,255,.16),transparent 70%)}
-.hero h1{font-size:var(--fs-name);font-weight:800;text-wrap:balance;text-shadow:0 0 48px var(--glow)}
-.hero__role{font:700 clamp(1.2rem,3vw,1.75rem) var(--font-head);color:var(--accent);margin:1.25rem 0 .5rem}
-.hero__ctx{color:var(--muted);max-width:52ch;margin:0 auto}
-.cta{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;margin-top:2rem}
+/* ===== A. HERO (centered both ways, no photo) ===== */
+.hero{min-height:calc(100vh - 3.2rem);min-height:calc(100svh - 3.2rem);display:grid;place-items:center;text-align:center;padding:3rem 0;background:radial-gradient(55% 55% at 50% 45%,rgba(108,184,255,.14),transparent 72%),var(--bg-primary)}
+.hero h1{font-size:clamp(2.4rem,8.5vw,5.8rem);font-weight:900;letter-spacing:-.02em;text-shadow:.045em .045em 0 var(--accent-dim),0 0 60px var(--glow)}
+.tagline{color:var(--accent-soft);font-weight:700;font-size:clamp(1.1rem,2.6vw,1.5rem);margin:1.1rem 0 .6rem}
+.context{max-width:36rem;margin:0 auto 2rem;color:var(--muted)}
+.links{display:flex;flex-wrap:wrap;justify-content:center;gap:.75rem;list-style:none;margin:0;padding:0}
+.links a{display:grid;place-items:center;width:3.1rem;height:3.1rem;border:1px solid var(--line);border-radius:var(--radius-pill);background:var(--card);color:var(--text);transition:background .2s,color .2s,box-shadow .2s}
+.links a:hover{background:var(--accent);color:var(--on-accent);box-shadow:0 0 22px var(--glow)}
+.ico{width:1.35rem;height:1.35rem;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round}
 
-/* B. About: photo + gear ring on one side, content on the other */
-.about{display:grid;grid-template-columns:auto 1fr;gap:clamp(2rem,6vw,5rem);align-items:center}
-.photo{position:relative;width:var(--photo);aspect-ratio:1}
-.photo img{position:absolute;inset:14%;width:72%;height:72%;border-radius:50%;object-fit:cover;border:6px solid var(--bg-alt);box-shadow:0 0 30px var(--glow)}
-.gear{position:absolute;inset:0;pointer-events:none;animation:spin var(--gear-speed) linear infinite;filter:drop-shadow(0 0 8px var(--glow))}
-.gear::before,.gear::after{content:"";position:absolute;inset:0;background:var(--accent)}
-/* ring body, then 30 teeth: change 6deg (tooth width) to change the tooth count */
-.gear::before{-webkit-mask-image:radial-gradient(circle closest-side,transparent 80%,#000 80.4% 91%,transparent 91.4%);mask-image:radial-gradient(circle closest-side,transparent 80%,#000 80.4% 91%,transparent 91.4%)}
-.gear::after{-webkit-mask-image:radial-gradient(circle closest-side,transparent 89%,#000 89.4% 100%,transparent 100.4%),repeating-conic-gradient(#000 0 6deg,transparent 6deg 12deg);mask-image:radial-gradient(circle closest-side,transparent 89%,#000 89.4% 100%,transparent 100.4%),repeating-conic-gradient(#000 0 6deg,transparent 6deg 12deg);-webkit-mask-composite:source-in;mask-composite:intersect}
+/* ===== B. ABOUT (photo | content; stacks on mobile, photo on top) ===== */
+.about{display:grid;gap:2.5rem;align-items:center}
+@media(min-width:800px){.about{grid-template-columns:minmax(230px,300px) minmax(0,1fr);gap:4rem}}
+.gear{position:relative;width:min(280px,70vw);aspect-ratio:1;margin:0 auto}
+.gear svg{position:absolute;inset:0;width:100%;height:100%;animation:spin var(--gear-speed) linear infinite;color:var(--accent);filter:drop-shadow(0 0 10px var(--glow))}
+.gear img{position:absolute;inset:14%;width:72%;height:72%;border-radius:50%;object-fit:cover;background:var(--card)}
 @keyframes spin{to{transform:rotate(360deg)}}
-.name{display:flex;align-items:center;gap:.8rem;font-size:clamp(1.8rem,4vw,2.6rem);font-weight:800}
-/* the small shining point */
-.spark{flex:none;width:.7rem;height:.7rem;border-radius:50%;background:var(--accent-strong);box-shadow:0 0 8px 2px var(--accent),0 0 28px 8px var(--glow);animation:pulse 3s ease-in-out infinite}
-@keyframes pulse{50%{opacity:.55;transform:scale(.85)}}
-.panel{margin-top:1.5rem;padding:1.75rem;background:var(--card);border:1px solid var(--border);border-radius:var(--radius);box-shadow:0 0 44px -14px var(--glow)}
-.panel p{margin:0;color:var(--muted)}
-@media(max-width:800px){.about{grid-template-columns:1fr;justify-items:center}}
+.who{position:relative;isolation:isolate;display:inline-block;padding-left:1.7rem;margin-bottom:1.25rem;font-size:clamp(1.7rem,4vw,2.4rem)}
+/* the small shining point behind the name */
+.who::before{content:"";position:absolute;z-index:-1;left:2px;top:50%;width:12px;height:12px;margin-top:-6px;border-radius:50%;background:var(--accent);box-shadow:0 0 0 7px rgba(108,184,255,.12),0 0 30px 12px var(--glow)}
+.about-card{padding:clamp(1.3rem,3vw,2rem)}
+.about-card h3{font-size:1.15rem;margin:1.4rem 0 .2rem}
+.about-card ul{margin:.4rem 0 0;padding-left:1.2rem}
+.about-card li{margin:.4rem 0}
+.about-card li::marker{color:var(--accent)}
+.timeline{display:flex;flex-wrap:wrap;gap:1rem 2.2rem;list-style:none;margin:1.5rem 0 0;padding:0}
+.timeline li{position:relative;padding-left:1.3rem;font-size:.95rem;line-height:1.45}
+.timeline li::before{content:"";position:absolute;left:0;top:.4rem;width:9px;height:9px;border-radius:50%;background:var(--accent)}
+.timeline b{display:block;font-size:.85rem;color:var(--muted)}
 
-/* What I do */
-.grid2{display:grid;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr));gap:var(--space-lg)}
-.do{background:var(--card);border:1px solid var(--border);border-radius:var(--radius);overflow:hidden;transition:border-color .3s,box-shadow .3s}
-.do:hover{border-color:var(--border-strong);box-shadow:0 0 36px -12px var(--glow)}
-.do img{aspect-ratio:4/3;width:100%;object-fit:cover}
-.do div{padding:1.5rem} .do p{color:var(--muted);margin:.6rem 0 0}
+/* ===== PROJECTS ===== */
+.grid{display:grid;gap:1.25rem;grid-template-columns:repeat(auto-fit,minmax(min(100%,300px),1fr))}
+@media(min-width:900px){.grid{grid-template-columns:repeat(3,1fr)}.card.feat,.card:last-child{grid-column:span 2}}  /* 7 cards: wide first and last card keep rows full */
+.card{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:340px;overflow:hidden;border:1px solid var(--line);border-radius:var(--radius);background:var(--card);transition:border-color .2s,box-shadow .2s}
+.card:hover,.card:focus-within{border-color:var(--accent);box-shadow:0 0 34px -6px var(--glow)}
+.card>img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;opacity:.45}
+.card::before{content:"";position:absolute;inset:0;z-index:1;background:linear-gradient(180deg,rgba(4,10,20,.1),rgba(4,10,20,.94) 62%)}
+.card .body{position:relative;z-index:2;padding:1.4rem}
+.card h3{font-size:1.3rem;margin-bottom:.4rem}
+.card p{margin:0 0 .9rem;font-size:.97rem;line-height:1.55;color:#d3e2f3}
+.tags{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;margin:0 0 1rem;padding:0}
+.tags li{font-size:.8rem;font-weight:700;padding:.15rem .65rem;border:1px solid var(--line);border-radius:var(--radius-pill);background:rgba(4,10,20,.7);color:var(--accent-soft)}
+.card .acts{display:flex;gap:1.25rem;font-weight:800}
 
-/* Projects */
-.projects{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--space)}
-.projects>:first-child{grid-column:span 2}
-@media(min-width:901px){.projects>:last-child{grid-column:span 2}}
-@media(max-width:900px){.projects{grid-template-columns:repeat(2,1fr)}}
-@media(max-width:600px){.projects{grid-template-columns:1fr}.projects>:first-child{grid-column:auto}}
-.card{position:relative;isolation:isolate;display:flex;align-items:flex-end;min-height:380px;border-radius:var(--radius);overflow:hidden;color:var(--text);background:var(--card);border:1px solid var(--border);transition:border-color .3s,box-shadow .3s}
-.card:hover{border-color:var(--border-strong);box-shadow:0 0 40px -10px var(--glow)}
-.card__bg{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;z-index:-2;transition:transform .5s}
-.card::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(to top,rgba(2,6,16,.97) 22%,rgba(4,10,22,.65) 70%,rgba(4,10,22,.35))}
-.card:hover .card__bg{transform:scale(1.05)}
-.card__body{padding:1.5rem;width:100%}
-.card p{margin:.5rem 0 1rem;font-size:.98rem;color:#d3e3f8}
-.tags{display:flex;flex-wrap:wrap;gap:.4rem;list-style:none;padding:0;margin:0 0 1rem}
-.tags li{font-size:.8rem;font-weight:600;padding:.2rem .65rem;border-radius:var(--pill);background:rgba(143,208,255,.12);border:1px solid var(--border-strong);color:var(--accent-strong)}
-.tags .todo{border-style:dashed}
-.links{display:flex;flex-wrap:wrap;gap:.6rem}
-.links a{color:var(--accent);font-weight:700;font-size:.9rem;padding:.4rem .9rem;border:2px solid var(--accent);border-radius:var(--pill);text-decoration:none}
-.links a:hover{background:var(--accent);color:var(--on-accent)}
-
-/* Skills carousel: Devicon glyphs inherit the text color, so they're tinted by --accent */
-.marquee{overflow:hidden;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
-.track{display:flex;width:max-content;animation:scroll var(--marquee-speed) linear infinite}
-.track ul{display:flex;gap:.75rem;list-style:none;margin:0;padding:.5rem .75rem .5rem 0}
-.track li{display:flex;align-items:center;gap:.6rem;white-space:nowrap;padding:.6rem 1.2rem;border-radius:var(--pill);background:var(--card);border:1px solid var(--border);font-weight:700;transition:border-color .25s,box-shadow .25s}
-.track li:hover{border-color:var(--border-strong);box-shadow:0 0 18px -4px var(--glow)}
-.track li.only{padding:.55rem .9rem}
-.track i,.track svg{font-size:1.5rem;color:var(--accent);line-height:1}
-.track .only i{font-size:1.8rem}
-.track img{width:1.4rem;height:1.4rem}
-.marquee:hover .track,.marquee.paused .track{animation-play-state:paused}
+/* ===== SKILLS MARQUEE ===== */
+.marquee{overflow-x:auto;padding:.6rem 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
+.track{display:flex;align-items:center;width:max-content;list-style:none;margin:0;padding:0}
+.chip{flex:none;display:inline-flex;align-items:center;gap:.65rem;margin-right:.9rem;padding:.65rem 1.3rem;border:1px solid var(--line);border-radius:var(--radius-pill);background:var(--card-2);font-weight:700;white-space:nowrap;transition:border-color .2s,box-shadow .2s}
+.chip:hover{border-color:var(--accent);box-shadow:0 0 20px -4px var(--glow)}
+.chip i{font-size:1.5rem;line-height:1;color:var(--accent)}  /* Devicon glyphs inherit this blue */
+.chip img{width:1.4rem;height:1.4rem}                          /* Simple Icons: blue is set in each URL (…/slug/6cb8ff) */
+.chip.only{padding:.6rem .95rem}
+.chip.only i{font-size:1.9rem}.chip.only img{width:1.9rem;height:1.9rem}
+.marquee.on{overflow:hidden}
+.marquee.on .track{animation:scroll var(--marquee-speed) linear infinite}
+.marquee.on:hover .track,.marquee.on:focus-within .track{animation-play-state:paused}
 @keyframes scroll{to{transform:translateX(-50%)}}
-.pause{display:block;margin:1.25rem auto 0;font-size:.9rem;padding:.4rem 1rem}
-.langs{color:var(--muted);text-align:center;margin:1rem 0 0}
 
-/* Courses */
-.courses{list-style:none;margin:0 auto;padding:0;max-width:900px}
-.courses li{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1.4fr);gap:var(--space-lg);padding:1.25rem 0;border-top:1px solid var(--border)}
-.courses li:last-child{border-bottom:1px solid var(--border)}
-.courses p{margin:0;color:var(--muted)}
-@media(max-width:700px){.courses li{grid-template-columns:1fr;gap:.25rem}}
+/* ===== COURSES ===== */
+.courses{list-style:none;margin:0;padding:0;border-top:1px solid var(--line)}
+.courses li{display:grid;gap:.15rem 2rem;padding:1.1rem 0;border-bottom:1px solid var(--line)}
+@media(min-width:760px){.courses li{grid-template-columns:minmax(0,1fr) minmax(0,1.3fr);align-items:baseline}}
+.courses b{font-size:1.1rem}
+.courses span{color:var(--muted)}
 
-/* Start a conversation: one centered card */
-.contact{max-width:720px;margin:var(--space-lg) auto 0;padding:clamp(1.5rem,5vw,3rem);background:var(--card);border:1px solid var(--border);border-radius:calc(var(--radius) + 8px);box-shadow:0 0 64px -20px var(--glow);text-align:center}
-.contact .av{width:112px;height:112px;border-radius:50%;object-fit:cover;margin:0 auto 1.25rem;border:2px solid var(--border-strong);box-shadow:0 0 24px var(--glow)}
-.contact .sub{margin-bottom:0}
-.contact form{text-align:left;margin-top:1.5rem}
-.contact label{display:block;font-weight:700;margin-top:1rem}
-.contact input,.contact textarea{display:block;width:100%;margin-top:.35rem;padding:.8rem 1rem;font:inherit;color:var(--text);background:var(--bg-primary);border:1px solid var(--border);border-radius:12px}
-.contact input:focus-visible,.contact textarea:focus-visible{border-color:var(--accent)}
-.contact textarea{resize:vertical;min-height:8rem}
-.contact .send{display:block;width:100%;max-width:320px;margin:1.5rem auto 0;font-size:1.1rem}
-.info{margin-top:2rem;padding-top:1.5rem;border-top:1px solid var(--border)}
-.info p{margin:.2rem 0;color:var(--muted);overflow-wrap:anywhere}
-.info ul{list-style:none;display:flex;justify-content:center;gap:.25rem;padding:0;margin:1rem 0 0}
-footer{background:var(--black);border-top:1px solid var(--border);padding-block:2rem;color:var(--muted);text-align:center}
+/* ===== START A CONVERSATION ===== */
+.contact h2,.contact .lead{text-align:center}
+.contact h2::after{margin-inline:auto}
+.lead{max-width:34rem;margin:-.6rem auto 2.25rem;color:var(--muted)}
+.panel{display:grid;gap:2rem;max-width:920px;margin:0 auto;padding:clamp(1.25rem,4vw,2.5rem)}
+@media(min-width:800px){.panel{grid-template-columns:minmax(0,1.6fr) minmax(0,1fr);gap:2.5rem}}
+.form{display:grid;gap:1rem;align-content:start}
+.form h3{font-size:1.4rem}
+.form input,.form textarea{width:100%;padding:.85rem 1rem;border:1px solid var(--line);border-radius:14px;background:var(--card-2);color:var(--text);font:inherit}
+.form textarea{min-height:9rem;resize:vertical}
+.form ::placeholder{color:var(--muted);opacity:1}
+.form input:focus-visible,.form textarea:focus-visible{outline:3px solid var(--accent);outline-offset:2px;border-color:var(--accent)}
+.btn{justify-self:center;display:inline-flex;align-items:center;gap:.6rem;padding:.8rem 1.9rem;border:0;border-radius:var(--radius-pill);background:var(--accent);color:var(--on-accent);font:800 1rem var(--font);cursor:pointer;text-decoration:none;box-shadow:0 0 26px -6px var(--glow);transition:background .2s}
+.btn:hover{background:var(--accent-soft);color:var(--on-accent)}
+.note{margin:0;min-height:1.5em;text-align:center;font-size:.92rem;color:var(--accent-soft)}
+.side{display:grid;gap:1.25rem;align-content:start;justify-items:center}
+.avatar{width:150px;height:150px;border-radius:50%;object-fit:cover;border:1px solid var(--accent);box-shadow:0 0 30px -4px var(--glow);background:var(--card-2)}
+.info{width:100%;list-style:none;margin:0;padding:.4rem 1.2rem;background:var(--card-2);border:1px solid var(--line);border-radius:var(--radius);font-weight:700;font-size:.95rem}
+.info li{padding:.8rem 0;overflow-wrap:anywhere}
+.info li+li{border-top:1px solid var(--line)}
 
+footer{padding:2rem 0;border-top:1px solid var(--line);text-align:center;color:var(--muted);font-size:.92rem}
+
+/* ===== REDUCED MOTION ===== */
 @media(prefers-reduced-motion:reduce){
   html{scroll-behavior:auto}
-  .gear,.spark{animation:none}
-  .card__bg,.btn,.do,.card,.track li{transition:none} .card:hover .card__bg{transform:none}
-  .track{animation:none;width:auto} .marquee{-webkit-mask-image:none;mask-image:none}
-  .track ul{flex-wrap:wrap;justify-content:center} .track ul[aria-hidden]{display:none} .pause{display:none}
+  .gear svg,.marquee .track{animation:none!important}
+  *{transition:none!important}
 }
 </style>
 </head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
 
-<!-- Icon sprite (inline SVG) -->
-<svg width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
-  <symbol id="i-github" viewBox="0 0 24 24"><path d="M12 .297c-6.63 0-12 5.373-12 12 0 5.303 3.438 9.8 8.205 11.385.6.113.82-.258.82-.577 0-.285-.01-1.04-.015-2.04-3.338.724-4.042-1.61-4.042-1.61C4.422 18.07 3.633 17.7 3.633 17.7c-1.087-.744.084-.729.084-.729 1.205.084 1.838 1.236 1.838 1.236 1.07 1.835 2.809 1.305 3.495.998.108-.776.417-1.305.76-1.605-2.665-.3-5.466-1.332-5.466-5.93 0-1.31.465-2.38 1.235-3.22-.135-.303-.54-1.523.105-3.176 0 0 1.005-.322 3.3 1.23.96-.267 1.98-.399 3-.405 1.02.006 2.04.138 3 .405 2.28-1.552 3.285-1.23 3.285-1.23.645 1.653.24 2.873.12 3.176.765.84 1.23 1.91 1.23 3.22 0 4.61-2.805 5.625-5.475 5.92.42.36.81 1.096.81 2.22 0 1.606-.015 2.896-.015 3.286 0 .315.21.69.825.57C20.565 22.092 24 17.592 24 12.297c0-6.627-5.373-12-12-12"/></symbol>
-  <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 1 1 0-4.125 2.062 2.062 0 0 1 0 4.125zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0z"/></symbol>
-  <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2"/><path d="m3 7 9 6 9-6"/></symbol>
-  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.96.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.85.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
+<!-- Inline icon sprite (stroke icons). Reused with <use href="#i-name"> -->
+<svg width="0" height="0" style="position:absolute" aria-hidden="true">
+  <symbol id="i-github" viewBox="0 0 24 24"><path d="M9 19c-5 1.5-5-2.5-7-3m14 6v-3.87a3.37 3.37 0 0 0-.94-2.61c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A3.37 3.37 0 0 0 9 18.13V22"/></symbol>
+  <symbol id="i-linkedin" viewBox="0 0 24 24"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-4 0v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></symbol>
+  <symbol id="i-mail" viewBox="0 0 24 24"><path d="M4 4h16a2 2 0 0 1 2 2v12a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2z"/><path d="m22 6-10 7L2 6"/></symbol>
+  <symbol id="i-phone" viewBox="0 0 24 24"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.13.97.36 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.34 1.84.57 2.81.7A2 2 0 0 1 22 16.92z"/></symbol>
 </svg>
 
-<header class="site-header">
-  <div class="wrap bar">
-    <a class="brand" href="#top">
-      <!-- REPLACE: small header avatar (reuse the profile photo), 128x128 px, square -->
-      <img src="https://placehold.co/128x128/0c2142/8fd0ff?text=P" alt="" width="40" height="40">
-      <span>Pedro de Souza Carvalho</span>
-    </a>
-    <nav aria-label="Sections">
-      <ul>
-        <li><a href="#about">About</a></li>
-        <li><a href="#what-i-do">What I do</a></li>
-        <li><a href="#projects">Projects</a></li>
-        <li><a href="#skills">Skills</a></li>
-        <li><a href="#courses">Courses</a></li>
-        <li><a href="#contact">Contact</a></li>
-      </ul>
-    </nav>
-    <!-- Contact icon links (from the résumé) -->
-    <ul class="icons" aria-label="Contact links">
-      <li><a class="icon" href="https://github.com/pedrowsxz/" aria-label="GitHub profile (pedrowsxz)" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-github"/></svg></a></li>
-      <li><a class="icon" href="https://www.linkedin.com/in/pedro-de-souza-carvalho" aria-label="LinkedIn profile" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
-      <li><a class="icon" href="mailto:pedrowsxz@gmail.com" aria-label="Send an email to pedrowsxz@gmail.com"><svg class="s" aria-hidden="true"><use href="#i-mail"/></svg></a></li>
-      <!-- Phone: +55 (Brazil) added to the number from your résumé; edit if wrong -->
-      <li><a class="icon" href="tel:+5534996724293" aria-label="Call (34) 99672-4293"><svg class="s" aria-hidden="true"><use href="#i-phone"/></svg></a></li>
+<nav class="nav" aria-label="Main">
+  <ul>
+    <li><a href="#about">About</a></li>
+    <li><a href="#projects">Projects</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<header class="hero">
+  <div class="wrap">
+    <h1>Pedro de Souza Carvalho</h1>
+    <p class="tagline">AI-Assisted Full-Stack Developer</p>
+    <p class="context">I build, test and ship web apps with Claude Code, and I evaluate LLMs in Portuguese and English. Information Systems student at Uniube.</p>
+    <!-- Contact links: edit hrefs here. Add other profiles by copying one <li>. -->
+    <ul class="links">
+      <li><a href="https://github.com/pedrowsxz/" aria-label="GitHub profile" title="GitHub"><svg class="ico" aria-hidden="true"><use href="#i-github"/></svg></a></li>
+      <li><a href="https://linkedin.com/in/pedro-de-souza-carvalho" aria-label="LinkedIn profile" title="LinkedIn"><svg class="ico" aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
+      <li><a href="mailto:pedrowsxz@gmail.com" aria-label="Send an email to pedrowsxz@gmail.com" title="Email"><svg class="ico" aria-hidden="true"><use href="#i-mail"/></svg></a></li>
+      <li><a href="tel:+5534996724293" aria-label="Call +55 34 99672-4293" title="Phone"><svg class="ico" aria-hidden="true"><use href="#i-phone"/></svg></a></li>
     </ul>
   </div>
 </header>
 
 <main id="main">
-  <!-- A. HERO: centered, no photo -->
-  <section class="hero" id="top"><div class="wrap">
-    <h1>Pedro de Souza Carvalho</h1>
-    <p class="hero__role">AI Web Builder</p>
-    <p class="hero__ctx">Full-stack projects with React, Node.js and TypeScript, built and shipped with Claude Code. LLM evaluator in Portuguese and English.</p>
-    <div class="cta">
-      <a class="btn" href="#projects">See projects</a>
-      <a class="btn alt" href="#contact">Start a conversation</a>
-    </div>
-  </div></section>
 
-  <!-- B. ABOUT: photo with gear ring on one side, content on the other (photo goes on top on mobile) -->
-  <section id="about"><div class="wrap about">
-    <div class="photo">
-      <span class="gear" aria-hidden="true"></span>
-      <!-- REPLACE: profile photo, 600x600 px, square (shown as a circle; keep your face centered) -->
-      <img src="https://placehold.co/600x600/0c2142/8fd0ff?text=Profile+photo" alt="Portrait of Pedro de Souza Carvalho" width="600" height="600">
+<!-- ================= B. ABOUT (photo left, content right) ================= -->
+<section id="about" class="band">
+  <div class="wrap about">
+    <div class="gear">
+      <!-- Gear ring: teeth are a dashed thick circle (18 teeth). Change dasharray "10 10" and pathLength to alter tooth count. -->
+      <svg viewBox="-56 -56 112 112" aria-hidden="true" focusable="false">
+        <circle r="50" fill="none" stroke="currentColor" stroke-width="6" pathLength="360" stroke-dasharray="10 10"/>
+        <circle r="46" fill="none" stroke="currentColor" stroke-width="4"/>
+      </svg>
+      <!-- REPLACE: profile photo, 600x600 px, square (shown as a circle) -->
+      <img src="https://placehold.co/600x600/050b16/6cb8ff?text=Profile+photo" width="600" height="600" alt="Portrait of Pedro de Souza Carvalho">
     </div>
+
     <div>
-      <h2 class="name"><span class="spark" aria-hidden="true"></span>Pedro de Souza Carvalho</h2>
-      <div class="panel"><p>I'm a web developer with a full-stack base in React, Node.js and TypeScript. I use Claude Code to build, test and publish sites and web apps, and I review each iteration of the generated code critically. Since August 2026 I also work as a freelance LLM evaluator at Outlier.</p></div>
-    </div>
-  </div></section>
-
-  <section id="what-i-do"><div class="wrap">
-    <h2 class="title">What I do</h2>
-    <p class="sub">Build with AI, review every iteration.</p>
-    <div class="grid2">
-      <article class="do">
-        <!-- REPLACE: "What I do" card image, 640x480 px, 4:3 -->
-        <img src="https://placehold.co/640x480/0c2142/8fd0ff?text=AI-assisted+development" alt="" loading="lazy">
-        <div><h3>AI-assisted web development</h3><p>I use Claude Code to build, test and publish websites and web apps, and I check each iteration of the generated code before it ships.</p></div>
-      </article>
-      <article class="do">
-        <!-- REPLACE: "What I do" card image, 640x480 px, 4:3 -->
-        <img src="https://placehold.co/640x480/0c2142/8fd0ff?text=Full-stack+apps" alt="" loading="lazy">
-        <div><h3>Full-stack applications</h3><p>React and TypeScript on the front end, Node.js/Express or FastAPI behind REST APIs, with MongoDB, MySQL or SQLite for data.</p></div>
-      </article>
-      <article class="do">
-        <!-- REPLACE: "What I do" card image, 640x480 px, 4:3 -->
-        <img src="https://placehold.co/640x480/0c2142/8fd0ff?text=Testing+and+delivery" alt="" loading="lazy">
-        <div><h3>Testing and delivery</h3><p>Automated tests with Jest and Playwright, Git/GitHub workflows, CI/CD pipelines and deployments to Vercel and Render.</p></div>
-      </article>
-      <article class="do">
-        <!-- REPLACE: "What I do" card image, 640x480 px, 4:3 -->
-        <img src="https://placehold.co/640x480/0c2142/8fd0ff?text=LLM+evaluation" alt="" loading="lazy">
-        <div><h3>LLM evaluation</h3><p>As a freelance evaluator at Outlier, I audit AI-generated code and answers in Portuguese and English, using adversarial prompts to catch hallucinations, bugs and security flaws.</p></div>
-      </article>
-    </div>
-  </div></section>
-
-  <section id="projects"><div class="wrap">
-    <h2 class="title">Projects</h2>
-    <p class="sub">Selected work, from full-stack apps to data pipelines.</p>
-    <div class="projects">
-      <article class="card">
-        <!-- REPLACE: Steam project card background, 1200x800 px, 3:2 (wide card, keep subject centered) -->
-        <img class="card__bg" src="https://placehold.co/1200x800/0c2142/8fd0ff?text=Steam+Store+BI" alt="" loading="lazy">
-        <div class="card__body">
-          <h3>Steam Store BI Lakehouse</h3>
-          <p>Kaggle data turned into a Bronze/Silver/Gold lakehouse on Databricks, a Power BI dashboard, and a React web app on Vercel showing about 27 thousand Steam games. Includes the fix for a CSV parsing bug that shifted columns. In progress.</p>
-          <ul class="tags"><li>React</li><li>FastAPI</li><li>Databricks</li><li>PySpark</li><li>Delta Lake</li><li>Power BI</li><li>Vercel</li></ul>
-          <div class="links"><a href="https://steam-dataset-analysis.vercel.app/" target="_blank" rel="noopener">Live site</a><a href="https://github.com/pedrowsxz/steam_dataset_analysis" target="_blank" rel="noopener">Code</a></div>
-        </div>
-      </article>
-      <article class="card">
-        <!-- REPLACE: Bloglist project card background, 1200x800 px, 3:2 -->
-        <img class="card__bg" src="https://placehold.co/1200x800/0c2142/8fd0ff?text=Bloglist" alt="" loading="lazy">
-        <div class="card__body">
-          <h3>Fullstack Bloglist Platform</h3>
-          <p>Blog publishing app: a React front end consuming a Node.js/Express REST API, with authentication, authorization and protected routes.</p>
-          <ul class="tags"><li>React</li><li>Node.js</li><li>Express</li><li>MongoDB</li></ul>
-          <!-- REPLACE: link to the Bloglist repo or live site (currently points to your GitHub profile) -->
-          <div class="links"><a href="https://github.com/pedrowsxz/">Code</a></div>
-        </div>
-      </article>
-      <article class="card">
-        <!-- REPLACE: Library project card background, 1200x800 px, 3:2 -->
-        <img class="card__bg" src="https://placehold.co/1200x800/0c2142/8fd0ff?text=Library+portal" alt="" loading="lazy">
-        <div class="card__body">
-          <h3>Municipal Library Portal</h3>
-          <p>Site for the Juscelino Kubitschek de Oliveira public library, with events and book-reservation modules and a REST API on a relational database.</p>
-          <ul class="tags"><li>React</li><li>Node.js</li><li>SQL</li><li>Render</li></ul>
-          <div class="links"><a href="https://biblioteca-react-app.onrender.com/" target="_blank" rel="noopener">Live site</a><a href="https://github.com/pedrowsxz/biblioteca-react-app" target="_blank" rel="noopener">Code</a></div>
-        </div>
-      </article>
-      <article class="card">
-        <!-- REPLACE: Auction Lots project card background, 1200x800 px, 3:2 -->
-        <img class="card__bg" src="https://placehold.co/1200x800/0c2142/8fd0ff?text=Auction+Lots" alt="" loading="lazy">
-        <div class="card__body">
-          <h3>Auction Lots</h3>
-          <p>Register and browse auction lots. Validated REST API, SQL sorting and price filtering through a column whitelist, URL-synced filters, and tests on both sides. Backend moved from Express to FastAPI with the same HTTP contract.</p>
-          <ul class="tags"><li>FastAPI</li><li>SQLite</li><li>React</li><li>TypeScript</li><li>pytest</li><li>Vitest</li></ul>
-          <div class="links"><a href="https://github.com/pedrowsxz/lotes-leilao" target="_blank" rel="noopener">Code</a></div>
-        </div>
-      </article>
-      <article class="card">
-        <!-- REPLACE: Twitch chatbot card background, 1200x800 px, 3:2 -->
-        <img class="card__bg" src="https://placehold.co/1200x800/0c2142/8fd0ff?text=Twitch+chatbot" alt="" loading="lazy">
-        <div class="card__body">
-          <h3>Twitch AI ChatBot</h3>
-          <p>A Twitch chatbot that interacts with viewers and answers automatically with AI-generated replies.</p>
-          <!-- REPLACE: add the real tech stack tags -->
-          <ul class="tags"><li>Twitch</li><li>AI</li><li class="todo">Add stack</li></ul>
-          <div class="links"><a href="https://github.com/pedrowsxz/AiChatBotTwitch" target="_blank" rel="noopener">Code</a></div>
-        </div>
-      </article>
-      <article class="card">
-        <!-- REPLACE: Airbnb analysis card background, 1200x800 px, 3:2 -->
-        <img class="card__bg" src="https://placehold.co/1200x800/0c2142/8fd0ff?text=Airbnb+analysis" alt="" loading="lazy">
-        <div class="card__body">
-          <h3>New York Airbnb Price Analysis</h3>
-          <p>Analysis of New York Airbnb listings: spreadsheet exploration plus statistical analysis in Python inside Jupyter Notebook.</p>
-          <ul class="tags"><li>Python</li><li>Pandas</li><li>Matplotlib</li><li>Seaborn</li><li>Jupyter</li></ul>
-          <div class="links"><a href="https://github.com/pedrowsxz/Analise_de_Precos_NY_Airbnb" target="_blank" rel="noopener">Code</a></div>
-        </div>
-      </article>
-      <article class="card">
-        <!-- REPLACE: Amazon scraper card background, 1200x800 px, 3:2 (wide card) -->
-        <img class="card__bg" src="https://placehold.co/1200x800/0c2142/8fd0ff?text=Amazon+scraper" alt="" loading="lazy">
-        <div class="card__body">
-          <h3>Amazon Products Listing Scraper</h3>
-          <p>A frontend tool that scrapes Amazon product pages and returns structured information for each product.</p>
-          <!-- REPLACE: add the real tech stack tags -->
-          <ul class="tags"><li>Web scraping</li><li class="todo">Add stack</li></ul>
-          <div class="links"><a href="https://github.com/pedrowsxz/AmazonProductsListingScraper" target="_blank" rel="noopener">Code</a></div>
-        </div>
-      </article>
-    </div>
-  </div></section>
-
-  <section id="skills"><div class="wrap">
-    <h2 class="title">Skills</h2>
-    <p class="sub">Tools and technologies I work with.</p>
-    <div class="marquee" id="marquee">
-      <div class="track"><ul aria-label="Skills"><li><img src="https://cdn.simpleicons.org/claude/8fd0ff" alt="" loading="lazy" onerror="this.remove()"><span>Claude Code</span></li><li><img src="https://cdn.simpleicons.org/githubcopilot/8fd0ff" alt="" loading="lazy" onerror="this.remove()"><span>GitHub Copilot</span></li><li><span>Prompt engineering</span></li><li><span>LLM evaluation</span></li><li><span>Adversarial testing</span></li><li class="only"><span role="img" aria-label="React" title="React"><i class="devicon-react-original" aria-hidden="true"></i></span></li><li class="only"><span role="img" aria-label="TypeScript" title="TypeScript"><i class="devicon-typescript-plain" aria-hidden="true"></i></span></li><li class="only"><span role="img" aria-label="JavaScript" title="JavaScript"><i class="devicon-javascript-plain" aria-hidden="true"></i></span></li><li class="only"><span role="img" aria-label="HTML5" title="HTML5"><i class="devicon-html5-plain" aria-hidden="true"></i></span></li><li class="only"><span role="img" aria-label="CSS3" title="CSS3"><i class="devicon-css3-plain" aria-hidden="true"></i></span></li><li><span>REST APIs</span></li><li><i class="devicon-nodejs-plain" aria-hidden="true"></i><span>Node.js</span></li><li><i class="devicon-express-original" aria-hidden="true"></i><span>Express</span></li><li><i class="devicon-fastapi-plain" aria-hidden="true"></i><span>FastAPI</span></li><li class="only"><span role="img" aria-label="Python" title="Python"><i class="devicon-python-plain" aria-hidden="true"></i></span></li><li><i class="devicon-mysql-plain" aria-hidden="true"></i><span>SQL (MySQL)</span></li><li><i class="devicon-mongodb-plain" aria-hidden="true"></i><span>MongoDB</span></li><li class="only"><span role="img" aria-label="Git / GitHub" title="Git / GitHub"><i class="devicon-git-plain" aria-hidden="true"></i></span></li><li><i class="devicon-gitlab-plain" aria-hidden="true"></i><span>GitLab CI/CD</span></li><li><i class="devicon-vercel-original" aria-hidden="true"></i><span>Vercel</span></li><li><img src="https://cdn.simpleicons.org/render/8fd0ff" alt="" loading="lazy" onerror="this.remove()"><span>Render</span></li><li><i class="devicon-jest-plain" aria-hidden="true"></i><span>Jest</span></li><li><img src="https://cdn.simpleicons.org/playwright/8fd0ff" alt="" loading="lazy" onerror="this.remove()"><span>Playwright</span></li><li class="only"><span role="img" aria-label="Docker (basics)" title="Docker (basics)"><i class="devicon-docker-plain" aria-hidden="true"></i></span></li><li class="only"><span role="img" aria-label="Java" title="Java"><i class="devicon-java-plain" aria-hidden="true"></i></span></li><li><i class="devicon-spring-original" aria-hidden="true"></i><span>Spring Boot</span></li><li><i class="devicon-maven-plain" aria-hidden="true"></i><span>Maven</span></li><li><img src="https://cdn.simpleicons.org/databricks/8fd0ff" alt="" loading="lazy" onerror="this.remove()"><span>Databricks</span></li><li><span>PySpark</span></li><li><span>Delta Lake</span></li><li><img src="https://cdn.simpleicons.org/powerbi/8fd0ff" alt="" loading="lazy" onerror="this.remove()"><span>Power BI</span></li></ul><ul aria-hidden="true"><li><img src="https://cdn.simpleicons.org/claude/8fd0ff" alt="" loading="lazy" onerror="this.remove()"><span>Claude Code</span></li><li><img src="https://cdn.simpleicons.org/githubcopilot/8fd0ff" alt="" loading="lazy" onerror="this.remove()"><span>GitHub Copilot</span></li><li><span>Prompt engineering</span></li><li><span>LLM evaluation</span></li><li><span>Adversarial testing</span></li><li class="only"><span role="img" aria-label="React" title="React"><i class="devicon-react-original" aria-hidden="true"></i></span></li><li class="only"><span role="img" aria-label="TypeScript" title="TypeScript"><i class="devicon-typescript-plain" aria-hidden="true"></i></span></li><li class="only"><span role="img" aria-label="JavaScript" title="JavaScript"><i class="devicon-javascript-plain" aria-hidden="true"></i></span></li><li class="only"><span role="img" aria-label="HTML5" title="HTML5"><i class="devicon-html5-plain" aria-hidden="true"></i></span></li><li class="only"><span role="img" aria-label="CSS3" title="CSS3"><i class="devicon-css3-plain" aria-hidden="true"></i></span></li><li><span>REST APIs</span></li><li><i class="devicon-nodejs-plain" aria-hidden="true"></i><span>Node.js</span></li><li><i class="devicon-express-original" aria-hidden="true"></i><span>Express</span></li><li><i class="devicon-fastapi-plain" aria-hidden="true"></i><span>FastAPI</span></li><li class="only"><span role="img" aria-label="Python" title="Python"><i class="devicon-python-plain" aria-hidden="true"></i></span></li><li><i class="devicon-mysql-plain" aria-hidden="true"></i><span>SQL (MySQL)</span></li><li><i class="devicon-mongodb-plain" aria-hidden="true"></i><span>MongoDB</span></li><li class="only"><span role="img" aria-label="Git / GitHub" title="Git / GitHub"><i class="devicon-git-plain" aria-hidden="true"></i></span></li><li><i class="devicon-gitlab-plain" aria-hidden="true"></i><span>GitLab CI/CD</span></li><li><i class="devicon-vercel-original" aria-hidden="true"></i><span>Vercel</span></li><li><img src="https://cdn.simpleicons.org/render/8fd0ff" alt="" loading="lazy" onerror="this.remove()"><span>Render</span></li><li><i class="devicon-jest-plain" aria-hidden="true"></i><span>Jest</span></li><li><img src="https://cdn.simpleicons.org/playwright/8fd0ff" alt="" loading="lazy" onerror="this.remove()"><span>Playwright</span></li><li class="only"><span role="img" aria-label="Docker (basics)" title="Docker (basics)"><i class="devicon-docker-plain" aria-hidden="true"></i></span></li><li class="only"><span role="img" aria-label="Java" title="Java"><i class="devicon-java-plain" aria-hidden="true"></i></span></li><li><i class="devicon-spring-original" aria-hidden="true"></i><span>Spring Boot</span></li><li><i class="devicon-maven-plain" aria-hidden="true"></i><span>Maven</span></li><li><img src="https://cdn.simpleicons.org/databricks/8fd0ff" alt="" loading="lazy" onerror="this.remove()"><span>Databricks</span></li><li><span>PySpark</span></li><li><span>Delta Lake</span></li><li><img src="https://cdn.simpleicons.org/powerbi/8fd0ff" alt="" loading="lazy" onerror="this.remove()"><span>Power BI</span></li></ul></div>
-    </div>
-    <button class="btn alt pause" type="button" id="pause" aria-pressed="false">Pause scrolling</button>
-    <p class="langs">Languages: Portuguese (native), English (fluent).</p>
-  </div></section>
-
-  <section id="courses"><div class="wrap">
-    <h2 class="title">Courses</h2>
-    <p class="sub">Extracurricular courses on modern, AI-assisted software development.</p>
-    <ul class="courses">
-      <li><h3>CS146S: The Modern Software Developer</h3><p>How AI tools are changing the way software gets planned, written and reviewed.</p></li>
-      <li><h3>Claude Code in Action</h3><p>Using Claude Code to plan, build, test and review code from the terminal.</p></li>
-      <li><h3>Introduction to Model Context Protocol (MCP)</h3><p>The basics of MCP: connecting AI models to tools and data through servers and clients.</p></li>
-      <li><h3>Model Context Protocol: Advanced Topics</h3><p>Going deeper into MCP, beyond the basics of building servers and clients.</p></li>
-      <li><h3>Introduction to Agent Skills</h3><p>Writing reusable Skills that teach Claude specialized tasks and workflows.</p></li>
-      <li><h3>Building with the Claude API</h3><p>Building applications on the Claude API, from prompts to tool use.</p></li>
-    </ul>
-  </div></section>
-
-  <section id="contact"><div class="wrap">
-    <h2 class="title">Start a conversation</h2>
-    <p class="sub">Tell me about your project</p>
-    <div class="contact">
-      <!-- REPLACE: contact card avatar, 240x240 px, square -->
-      <img class="av" src="https://placehold.co/240x240/0c2142/8fd0ff?text=P" alt="">
-      <form id="form" action="mailto:pedrowsxz@gmail.com" method="post" enctype="text/plain">
-        <label>Name <input name="name" autocomplete="name" required></label>
-        <label>Email <input name="email" type="email" autocomplete="email" required></label>
-        <label>Message <textarea name="message" rows="5" required></textarea></label>
-        <button class="btn send" type="submit">Send message</button>
-      </form>
-      <div class="info">
-        <p>Pedro de Souza Carvalho</p>
-        <!-- REPLACE: your city and state (not in the résumé) -->
-        <p>[City, State]</p>
-        <p><a href="mailto:pedrowsxz@gmail.com">pedrowsxz@gmail.com</a></p>
-        <ul>
-          <li><a class="icon" href="https://github.com/pedrowsxz/" aria-label="GitHub profile (pedrowsxz)" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-github"/></svg></a></li>
-          <li><a class="icon" href="https://www.linkedin.com/in/pedro-de-souza-carvalho" aria-label="LinkedIn profile" target="_blank" rel="noopener"><svg aria-hidden="true"><use href="#i-linkedin"/></svg></a></li>
-        </ul>
+      <h2 class="who">Pedro de Souza Carvalho</h2>
+      <div class="card-surface about-card">
+        <p>I'm a web developer with a full-stack base in React, Node.js and TypeScript. I use Claude Code to build, test and publish sites and web apps, and I review every iteration of the generated code critically. I'm finishing a Bachelor's in Information Systems at Uniube, in Uberlândia, MG.</p>
       </div>
     </div>
-  </div></section>
+  </div>
+</section>
+
+<!-- ================= PROJECTS ================= -->
+<section id="projects">
+  <div class="wrap">
+    <h2>Projects</h2>
+    <div class="grid">
+
+      <article class="card feat">
+        <!-- REPLACE: Steam BI project card background, 1200x750 px, 16:10 -->
+        <img src="https://placehold.co/1200x750/050b16/6cb8ff?text=Steam+BI+Lakehouse" width="1200" height="750" alt="" loading="lazy">
+        <div class="body">
+          <h3>Steam Store BI Lakehouse</h3>
+          <p>End-to-end BI: raw Kaggle data to a Medallion Lakehouse on Databricks, a Power BI dashboard, and a React web version over a FastAPI API. Includes a CSV parsing bug traced to its root cause.</p>
+          <ul class="tags"><li>Databricks</li><li>PySpark</li><li>Delta Lake</li><li>Power BI</li><li>FastAPI</li><li>React</li><li>Vercel</li></ul>
+          <div class="acts"><a href="https://github.com/pedrowsxz/steam_dataset_analysis">Code</a><a href="https://steam-dataset-analysis.vercel.app/">Live</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <!-- REPLACE: Bloglist project card background, 1200x750 px, 16:10 -->
+        <img src="https://placehold.co/1200x750/050b16/6cb8ff?text=Bloglist" width="1200" height="750" alt="" loading="lazy">
+        <div class="body">
+          <h3>Fullstack Bloglist Platform</h3>
+          <p>Blog publishing app: a React frontend consuming a REST API, with authentication, authorization and protected routes.</p>
+          <ul class="tags"><li>React</li><li>Node.js</li><li>Express</li><li>MongoDB</li></ul>
+          <!-- REPLACE: Bloglist repo URL (not in resume or current site) -->
+          <div class="acts"><a href="#">Code [add link]</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <!-- REPLACE: Library portal card background, 1200x750 px, 16:10 -->
+        <img src="https://placehold.co/1200x750/050b16/6cb8ff?text=Library+Portal" width="1200" height="750" alt="" loading="lazy">
+        <div class="body">
+          <h3>Municipal Library Portal</h3>
+          <p>Site for the Biblioteca Pública Municipal Juscelino Kubitschek de Oliveira, with events and book reservations on a REST API and relational database.</p>
+          <ul class="tags"><li>React</li><li>Node.js</li><li>SQL</li><li>Render</li></ul>
+          <div class="acts"><a href="https://github.com/pedrowsxz/biblioteca-react-app">Code</a><a href="https://biblioteca-react-app.onrender.com/">Live</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <!-- REPLACE: Auction lots card background, 1200x750 px, 16:10 -->
+        <img src="https://placehold.co/1200x750/050b16/6cb8ff?text=Auction+Lots" width="1200" height="750" alt="" loading="lazy">
+        <div class="body">
+          <h3>Auction Lots</h3>
+          <p>Register and browse auction lots. REST API with validation, SQL sorting and price filtering, URL-synced filters, and tests on both ends.</p>
+          <ul class="tags"><li>FastAPI</li><li>SQLite</li><li>React</li><li>TypeScript</li><li>pytest</li><li>Vitest</li></ul>
+          <div class="acts"><a href="https://github.com/pedrowsxz/lotes-leilao">Code</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <!-- REPLACE: Twitch chatbot card background, 1200x750 px, 16:10 -->
+        <img src="https://placehold.co/1200x750/050b16/6cb8ff?text=Twitch+AI+ChatBot" width="1200" height="750" alt="" loading="lazy">
+        <div class="body">
+          <h3>Twitch AI ChatBot</h3>
+          <p>A Twitch chatbot that interacts with viewers and answers with AI-generated responses.</p>
+          <ul class="tags"><li>Twitch</li><li>AI</li><li>[add stack]</li></ul>
+          <div class="acts"><a href="https://github.com/pedrowsxz/AiChatBotTwitch">Code</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <!-- REPLACE: Airbnb analysis card background, 1200x750 px, 16:10 -->
+        <img src="https://placehold.co/1200x750/050b16/6cb8ff?text=NY+Airbnb+Analysis" width="1200" height="750" alt="" loading="lazy">
+        <div class="body">
+          <h3>New York Airbnb Price Analysis</h3>
+          <p>Statistical analysis of New York Airbnb listings, from spreadsheets to charts, in Jupyter Notebook.</p>
+          <ul class="tags"><li>Python</li><li>Pandas</li><li>Matplotlib</li><li>Seaborn</li><li>Jupyter</li></ul>
+          <div class="acts"><a href="https://github.com/pedrowsxz/Analise_de_Precos_NY_Airbnb">Code</a></div>
+        </div>
+      </article>
+
+      <article class="card">
+        <!-- REPLACE: Amazon scraper card background, 1200x750 px, 16:10 -->
+        <img src="https://placehold.co/1200x750/050b16/6cb8ff?text=Amazon+Scraper" width="1200" height="750" alt="" loading="lazy">
+        <div class="body">
+          <h3>Amazon Products Listing Scraper</h3>
+          <p>A frontend tool that scrapes Amazon product pages and returns structured information for each product.</p>
+          <ul class="tags"><li>Frontend</li><li>Scraping</li><li>[add stack]</li></ul>
+          <div class="acts"><a href="https://github.com/pedrowsxz/AmazonProductsListingScraper">Code</a></div>
+        </div>
+      </article>
+
+    </div>
+  </div>
+</section>
+
+<!-- ================= SKILLS (auto-scrolling carousel with icons) ================= -->
+<section id="skills" class="band">
+  <div class="wrap">
+    <h2>Skills</h2>
+  </div>
+  <!-- Edit chips here. Icon-only chips carry aria-label + title; text-only chips have no icon. JS clones the list once so the loop is seamless. Speed: --marquee-speed -->
+  <div class="marquee" tabindex="0" aria-label="Skills carousel">
+    <ul class="track">
+      <li class="chip"><img src="https://cdn.simpleicons.org/claude/6cb8ff" alt="" width="24" height="24">Claude Code</li>
+      <li class="chip"><img src="https://cdn.simpleicons.org/githubcopilot/6cb8ff" alt="" width="24" height="24">GitHub Copilot</li>
+      <li class="chip">Prompt Engineering</li>
+      <li class="chip">LLM Evaluation</li>
+      <li class="chip only"><span role="img" aria-label="React" title="React"><i class="devicon-react-original" aria-hidden="true"></i></span></li>
+      <li class="chip only"><span role="img" aria-label="TypeScript" title="TypeScript"><i class="devicon-typescript-plain" aria-hidden="true"></i></span></li>
+      <li class="chip only"><span role="img" aria-label="JavaScript" title="JavaScript"><i class="devicon-javascript-plain" aria-hidden="true"></i></span></li>
+      <li class="chip only"><span role="img" aria-label="HTML5" title="HTML5"><i class="devicon-html5-plain" aria-hidden="true"></i></span></li>
+      <li class="chip only"><span role="img" aria-label="CSS3" title="CSS3"><i class="devicon-css3-plain" aria-hidden="true"></i></span></li>
+      <li class="chip">REST APIs</li>
+      <li class="chip only"><span role="img" aria-label="Node.js" title="Node.js"><i class="devicon-nodejs-plain" aria-hidden="true"></i></span></li>
+      <li class="chip"><i class="devicon-express-original" aria-hidden="true"></i>Express</li>
+      <li class="chip"><i class="devicon-fastapi-plain" aria-hidden="true"></i>FastAPI</li>
+      <li class="chip only"><span role="img" aria-label="Python" title="Python"><i class="devicon-python-plain" aria-hidden="true"></i></span></li>
+      <li class="chip"><i class="devicon-mysql-original" aria-hidden="true"></i>SQL (MySQL)</li>
+      <li class="chip only"><span role="img" aria-label="MongoDB" title="MongoDB"><i class="devicon-mongodb-plain" aria-hidden="true"></i></span></li>
+      <li class="chip"><i class="devicon-github-original" aria-hidden="true"></i>Git / GitHub</li>
+      <li class="chip"><i class="devicon-gitlab-plain" aria-hidden="true"></i>GitLab CI/CD</li>
+      <li class="chip"><i class="devicon-vercel-original" aria-hidden="true"></i>Vercel</li>
+      <li class="chip"><img src="https://cdn.simpleicons.org/render/6cb8ff" alt="" width="24" height="24">Render</li>
+      <li class="chip only"><span role="img" aria-label="Jest" title="Jest"><i class="devicon-jest-plain" aria-hidden="true"></i></span></li>
+      <li class="chip"><i class="devicon-playwright-plain" aria-hidden="true"></i>Playwright</li>
+      <li class="chip only"><span role="img" aria-label="Docker (basic)" title="Docker (basic)"><i class="devicon-docker-plain" aria-hidden="true"></i></span></li>
+      <li class="chip only"><span role="img" aria-label="Java" title="Java"><i class="devicon-java-plain" aria-hidden="true"></i></span></li>
+      <li class="chip"><i class="devicon-spring-original" aria-hidden="true"></i>Spring Boot</li>
+      <li class="chip"><i class="devicon-maven-plain" aria-hidden="true"></i>Maven</li>
+      <li class="chip"><img src="https://cdn.simpleicons.org/databricks/6cb8ff" alt="" width="24" height="24">Databricks</li>
+      <li class="chip">PySpark</li>
+      <li class="chip">Delta Lake</li>
+      <li class="chip">Power BI</li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= COURSES ================= -->
+<section id="courses">
+  <div class="wrap">
+    <h2>Courses</h2>
+    <!-- Edit the one-line descriptions freely -->
+    <ul class="courses">
+      <li><b>CS146S: The Modern Software Developer</b><span>How AI tools are changing the day-to-day workflow of building software.</span></li>
+      <li><b>Claude Code in Action</b><span>Hands-on use of Claude Code to plan, edit, test and ship code.</span></li>
+      <li><b>Introduction to Model Context Protocol (MCP)</b><span>The basics of MCP, the standard for connecting AI models to tools and data.</span></li>
+      <li><b>Model Context Protocol: Advanced Topics</b><span>Going deeper into MCP servers, clients and real-world integration.</span></li>
+      <li><b>Introduction to Agent Skills</b><span>Packaging reusable instructions so agents handle specialized tasks consistently.</span></li>
+      <li><b>Building with the Claude API</b><span>Calling the Claude API from code to build AI-powered features.</span></li>
+    </ul>
+  </div>
+</section>
+
+<!-- ================= START A CONVERSATION ================= -->
+<section id="contact" class="band contact">
+  <div class="wrap">
+    <h2>Start a conversation</h2>
+    <p class="lead">Have a project in mind, or just want to talk about building with AI? Send me a message.</p>
+    <div class="panel card-surface">
+      <!-- No backend: submitting opens the visitor's email app with the message filled in (see script). Change the address in the script too. -->
+      <form class="form" id="contact-form">
+        <h3>Tell me about your project</h3>
+        <label class="sr" for="f-name">Name</label>
+        <input id="f-name" name="name" type="text" placeholder="Name" autocomplete="name" required>
+        <label class="sr" for="f-email">Email</label>
+        <input id="f-email" name="email" type="email" placeholder="Email" autocomplete="email" required>
+        <label class="sr" for="f-phone">Phone number</label>
+        <input id="f-phone" name="phone" type="tel" placeholder="Phone number" autocomplete="tel">
+        <label class="sr" for="f-msg">Message</label>
+        <textarea id="f-msg" name="message" placeholder="Message" required></textarea>
+        <button class="btn" type="submit">Send message</button>
+        <p class="note" id="form-status" role="status"></p>
+      </form>
+      <aside class="side" aria-label="Contact details">
+        <!-- REPLACE: contact photo, 400x400 px, square (shown as a circle) -->
+        <img class="avatar" src="https://placehold.co/400x400/050b16/6cb8ff?text=Photo" width="400" height="400" alt="Pedro de Souza Carvalho">
+        <ul class="info">
+          <li>Pedro de Souza Carvalho</li>
+          <li>Uberlândia, MG</li><!-- confirm this is the location you want shown -->
+          <li><a href="mailto:pedrowsxz@gmail.com">pedrowsxz@gmail.com</a></li>
+          <li><a href="tel:+5534996724293">(34) 99672-4293</a></li>
+        </ul>
+      </aside>
+    </div>
+  </div>
+</section>
+
 </main>
 
-<footer><div class="wrap">Copyright &copy; 2026 Pedro de Souza Carvalho</div></footer>
+<footer>
+  <div class="wrap">&copy; <span id="year">2026</span> Pedro de Souza Carvalho. Built with HTML, CSS and a little JavaScript.</div>
+</footer>
 
 <script>
-(() => {
-  const reduce = matchMedia('(prefers-reduced-motion: reduce)');
+document.getElementById('year').textContent = new Date().getFullYear();
 
-  // Gear: CSS spins it slowly; this eases the speed up on hover (CSS alone can't change speed without a jump)
-  const photo = document.querySelector('.photo'), gear = photo.querySelector('.gear');
-  const mult = parseFloat(getComputedStyle(document.documentElement).getPropertyValue('--gear-hover-multiplier')) || 8;
-  let rate = 1, target = 1, raf;
-  const tick = () => {
+// Contact form: opens the visitor's email app with the fields filled in (no server needed)
+var f = document.getElementById('contact-form');
+f.addEventListener('submit', function(e){
+  e.preventDefault();
+  var d = new FormData(f);
+  var body = 'Name: ' + d.get('name') + '\nEmail: ' + d.get('email') + '\nPhone: ' + (d.get('phone') || '-') + '\n\n' + d.get('message');
+  location.href = 'mailto:pedrowsxz@gmail.com?subject=' + encodeURIComponent('Portfolio contact from ' + d.get('name')) + '&body=' + encodeURIComponent(body);
+  document.getElementById('form-status').textContent = 'Opening your email app...';
+});
+
+(function(){
+  if (matchMedia('(prefers-reduced-motion: reduce)').matches) return; // no motion at all: gear and carousel stay still
+
+  // Skills carousel: duplicate the chips once for a seamless loop
+  var m = document.querySelector('.marquee'), t = m.querySelector('.track');
+  Array.prototype.slice.call(t.children).forEach(function(c){
+    var k = c.cloneNode(true); k.setAttribute('aria-hidden','true'); t.appendChild(k);
+  });
+  m.classList.add('on');
+
+  // Gear: ease the spin speed up on hover and back down on leave
+  var gear = document.querySelector('.gear'), svg = gear.querySelector('svg');
+  var BOOST = 8, rate = 1, target = 1, anim = svg.getAnimations()[0];
+  function tick(){
     rate += (target - rate) * 0.06;
-    if (Math.abs(target - rate) < 0.01) rate = target;
-    const a = gear.getAnimations()[0]; if (a) a.playbackRate = rate;
-    if (rate !== target) raf = requestAnimationFrame(tick);
-  };
-  const go = t => { if (reduce.matches) return; target = t; cancelAnimationFrame(raf); raf = requestAnimationFrame(tick); };
-  photo.addEventListener('pointerenter', e => e.pointerType !== 'touch' && go(mult));
-  photo.addEventListener('pointerleave', () => go(1));
-
-  // Skills carousel: pause button for keyboard and touch users
-  const m = document.getElementById('marquee'), p = document.getElementById('pause');
-  p.addEventListener('click', () => {
-    const on = m.classList.toggle('paused');
-    p.setAttribute('aria-pressed', on); p.textContent = on ? 'Resume scrolling' : 'Pause scrolling';
-  });
-
-  // Contact form: opens your email app (static site, no server)
-  document.getElementById('form').addEventListener('submit', e => {
-    e.preventDefault();
-    const f = new FormData(e.target);
-    location.href = 'mailto:pedrowsxz@gmail.com?subject=' + encodeURIComponent('Message from ' + f.get('name')) +
-      '&body=' + encodeURIComponent(f.get('message') + '\n\n' + f.get('name') + ' <' + f.get('email') + '>');
-  });
+    if (anim) anim.playbackRate = rate;
+    if (Math.abs(target - rate) > 0.01) requestAnimationFrame(tick);
+  }
+  function go(v){ target = v; requestAnimationFrame(tick); }
+  gear.addEventListener('mouseenter', function(){ go(BOOST); });
+  gear.addEventListener('mouseleave', function(){ go(1); });
 })();
 </script>
 </body>
