@@ -104,59 +104,6 @@ section{padding:var(--section-gap) 0}
 .tags li{font-size:.8rem;font-weight:700;padding:.15rem .65rem;border:1px solid var(--line);border-radius:var(--radius-pill);background:rgba(4,10,20,.7);color:var(--accent-soft)}
 .card .acts{display:flex;gap:1.25rem;font-weight:800}
 
-
-/* ===== PROJECT CARD HOVER EFFECT ===== */
-
-/* Smooth image and text transitions */
-.card > img {
-  transition: opacity 0.4s ease, transform 0.5s ease;
-}
-
-.card .body {
-  position: relative;
-  z-index: 2;
-  box-sizing: border-box;
-  width: 100%;
-  transition: width 0.4s ease, background-color 0.4s ease;
-}
-
-/* Make the image more visible */
-.card:hover > img,
-.card:focus-within > img {
-  opacity: 0.9;
-  transform: scale(1.04);
-}
-
-/* Move the dark overlay toward the text on the right */
-.card:hover::before,
-.card:focus-within::before {
-  background: linear-gradient(
-    90deg,
-    rgba(4, 10, 20, 0.05) 0%,
-    rgba(4, 10, 20, 0.15) 30%,
-    rgba(4, 10, 20, 0.8) 60%,
-    rgba(4, 10, 20, 0.96) 100%
-  );
-}
-
-/* Wrap the content on the right side */
-@media (min-width: 700px) {
-  .card:hover .body,
-  .card:focus-within .body {
-    width: 65%;
-    align-self: flex-end;
-    background-color: rgba(4, 10, 20, 0.35);
-  }
-}
-
-/* Preserve the full-width text on smaller screens */
-@media (max-width: 699px) {
-  .card:hover .body,
-  .card:focus-within .body {
-    width: 100%;
-  }
-}
-
 /* ===== SKILLS MARQUEE ===== */
 .marquee{overflow-x:auto;padding:.6rem 0;-webkit-mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent);mask-image:linear-gradient(90deg,transparent,#000 8%,#000 92%,transparent)}
 .track{display:flex;align-items:center;width:max-content;list-style:none;margin:0;padding:0}
